@@ -52,6 +52,7 @@ module.exports = function(grunt) {
 					'src/modules/instagram.js',
 					'src/modules/joinme.js',
 					'src/modules/linkedin.js',
+          'src/modules/mailchimp.js',
 					'src/modules/soundcloud.js',
 					'src/modules/twitter.js',
 					'src/modules/vk.js',

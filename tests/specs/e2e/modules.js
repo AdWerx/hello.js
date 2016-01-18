@@ -11,6 +11,7 @@ define([
 	'../../../src/modules/instagram',
 	'../../../src/modules/joinme',
 	'../../../src/modules/linkedin',
+  '../../../src/modules/mailchimp',
 	'../../../src/modules/foursquare',
 	'../../../src/modules/github',
 	'../../../src/modules/bikeindex',
