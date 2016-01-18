@@ -46,7 +46,7 @@ define([], function() {
 
 				// Mock up _window and _parent objects for the tests
 				_window = {
-					location: mockLocation('http://adodson.com/redirect.html?state=' + JSON.stringify(_state) + '&access_token=' + _accessToken),
+					location: mockLocation('http://adodson.com/redirect.html?state=' + btoa(JSON.stringify(_state)) + '&access_token=' + _accessToken),
 					close: function() {
 					}
 				};
@@ -137,7 +137,7 @@ define([], function() {
 
 				// In this example we load a page containing the responseHandler script on it.
 				var frm = document.createElement('iframe');
-				frm.src = 'redirect.html?state={}&network=test&callback=testIframeCloses&access_token=token';
+				frm.src = 'redirect.html?state=e30=&network=test&callback=testIframeCloses&access_token=token';
 				document.body.appendChild(frm);
 
 			});
@@ -146,7 +146,7 @@ define([], function() {
 
 				var spy = sinon.spy();
 				_window.close = spy;
-				_window.location = mockLocation('http://adodson.com/redirect.html?error=error&error_description=description&state=' + JSON.stringify(_state));
+				_window.location = mockLocation('http://adodson.com/redirect.html?error=error&error_description=description&state=' + btoa(JSON.stringify(_state)));
 
 				var spy2 = sinon.spy();
 				_parent.callbackTestFunc = spy2;

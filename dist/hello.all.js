@@ -526,7 +526,7 @@ hello.utils.extend(hello, {
 		}
 
 		// Convert state to a string
-		p.qs.state = encodeURIComponent(JSON.stringify(p.qs.state));
+		p.qs.state = btoa(JSON.stringify(p.qs.state));
 
 		// URL
 		if (parseInt(provider.oauth.version, 10) === 1) {
@@ -1538,7 +1538,7 @@ hello.utils.extend(hello.utils, {
 		// OAuth2 or OAuth1 server response?
 		if (p && p.state && (p.code || p.oauth_token)) {
 
-			var state = JSON.parse(p.state);
+			var state = JSON.parse(atob(p.state));
 
 			// Add this path as the redirect_uri
 			p.redirect_uri = state.redirect_uri || location.href.replace(/[\?\#].*$/, '');
@@ -1565,7 +1565,7 @@ hello.utils.extend(hello.utils, {
 			// Remove any addition information
 			// E.g. p.state = 'facebook.page';
 			try {
-				var a = JSON.parse(p.state);
+				var a = JSON.parse(atob(p.state));
 				_this.extend(p, a);
 			}
 			catch (e) {
