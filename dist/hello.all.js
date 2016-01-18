@@ -3931,6 +3931,7 @@ if (typeof chrome === 'object' && typeof chrome.identity === 'object' && chrome.
 			scope: {
 				basic: 'https://www.googleapis.com/auth/plus.me profile',
 				email: 'email',
+				contacts: 'https://www.googleapis.com/auth/contacts.readonly',
 				birthday: '',
 				events: '',
 				photos: 'https://picasaweb.google.com/data/',
