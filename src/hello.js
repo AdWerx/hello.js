@@ -271,11 +271,6 @@ hello.utils.extend(hello, {
 			scope.push(opts.scope.toString());
 		}
 
-		// Add any basic scope - the default
-		if ('basic' in provider.scope) {
-			scope.push('basic');
-		}
-
 		// Append scopes from a previous session.
 		// This helps keep app credentials constant,
 		// Avoiding having to keep tabs on what scopes are authorized

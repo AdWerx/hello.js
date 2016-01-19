@@ -91,20 +91,6 @@ define([
 			hello.login('testable');
 		});
 
-		it('should include the basic scope defined by the module, by default', function(done) {
-
-			var spy = sinon.spy(function(url, name, optins) {
-
-				expect(url).to.contain('scope=' + hello.services.testable.scope.basic);
-
-				done();
-			});
-
-			utils.popup = spy;
-
-			hello.login('testable');
-		});
-
 		it('should not use "basic" as the default scope, if there is no mapping', function(done) {
 
 			// Remove the basic scope
@@ -240,7 +226,7 @@ define([
 
 				utils.popup = spy;
 
-				hello.login('test_delimit_scope');
+				hello.login('test_delimit_scope', {scope: 'basic'});
 			});
 
 			it('should space encode the delimiter of multiple response_type\'s', function(done) {
@@ -346,7 +332,7 @@ define([
 				var spy = sinon.spy(done.bind(null, new Error('window.open should not be called')));
 				utils.popup = spy;
 
-				hello('testable').login({force: false}).then(function(r) {
+				hello('testable').login({force: false, scope: 'basic'}).then(function(r) {
 					expect(spy.notCalled).to.be.ok();
 					expect(r.authResponse).to.eql(session);
 					done();
