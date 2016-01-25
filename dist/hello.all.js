@@ -5043,9 +5043,7 @@ if (typeof chrome === 'object' && typeof chrome.identity === 'object' && chrome.
 
 			oauth: {
 				version: 2,
-				auth: 'https://login.mailchimp.com/oauth2/authorize',
-				grant: 'https://login.mailchimp.com/oauth2/token',
-				response_type: 'code'
+				auth: 'https://login.mailchimp.com/oauth2/authorize'
 			},
 
 			scope: {
